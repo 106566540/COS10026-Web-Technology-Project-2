@@ -1,3 +1,10 @@
+<?php
+require_once("settings.php");
+
+$query = "SELECT * FROM jobs";
+$result = mysqli_query($conn, $query);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
