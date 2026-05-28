@@ -22,13 +22,11 @@
 
     <img src="Images/logo.png" alt="Description of the image" class=" logo">
     <!-- Top navigation bar, courtesy of Maxwell -->
-    <div class="topnav">
-        <a href="index.html">Home</a>
-        <a class="active" href="apply.html">Apply Now</a>
-        <a href="jobs.php">Jobs</a>
-        <a href="about.html">About Us</a>
-        <a href="login.php">Management</a>
-    </div>
+    <?php
+        $page = "apply";
+    ?>
+
+    <?php include 'nav.inc'; ?>
 
     <!-- Banner section displaying page heading -->
     <div class="banner">

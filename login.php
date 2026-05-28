@@ -6,6 +6,11 @@
 </head>
 <body>
 <?php include 'header.inc'; ?>
+    <?php
+        $page = "manage";
+    ?>
+
+    <?php include 'nav.inc'; ?>
 <h2>Login</h2>
 
 <form method="post" action="process.php">

@@ -30,14 +30,12 @@ $result = mysqli_query($conn, $query);
 <body>
 
     <img src="Images/logo.png" alt="Logo" class="logo">
+    <?php
+        $page = "jobs";
+    ?>
 
-    <div class="topnav">
-        <a href="index.html">Home</a>
-        <a href="apply.html">Apply Now</a>
-        <a class="active" href="jobs.php">Jobs</a>
-        <a href="about.html">About Us</a>
-        <a href="login.php">Management</a>
-    </div>
+    <?php include 'nav.inc'; ?>
+  
 
     <div style="background-image: url('Images/background.png'); background-size: cover; background-position: center;">
 
