@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<!-- Declares the document type as HTML5 -->
+
+<html lang="en">
+<!-- Root element of the page, language set to English -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Sets character encoding to UTF-8 for proper text display -->
+
+    <title>Apply</title>
+    <!-- Title displayed on the browser tab -->
+
+    <!-- External CSS file linked for styling -->
+    <link rel="stylesheet" href="demo.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+
+<body>
+
+    <img src="Images/logo.png" alt="Description of the image" class=" logo">
+    <!-- Top navigation bar, courtesy of Maxwell -->
+    <div class="topnav">
+        <a href="index.html">Home</a>
+        <a class="active" href="apply.html">Apply Now</a>
+        <a href="jobs.html">Jobs</a>
+        <a href="about.html">About Us</a>
+    </div>
+
+    <!-- Banner section displaying page heading -->
+    <div class="banner">
+        <h1>CAREERS</h1>
+    </div>
+
+    <!-- Main content container -->
+    <main class="container">
+
+        <!-- Main heading of the form -->
+        <h1 id="title">JOB APPLICATION</h1>
+
+        <!-- Form element: sends data using POST method to external test server -->
+        <form method="POST" action="https://mercury.swin.edu.au/it000000/formtest.php">
+
+            <!-- Grid layout for aligning form fields -->
+            <div class="form-grid">
+
+                <!-- Job Reference Number: must be exactly 5 alphanumeric characters -->
+                <label for="jobRef">Job Reference Number:</label>
+                <input type="text" id="jobRef" name="jobRef" pattern="[A-Za-z0-9]{5}" required>
+
+                <!-- First Name: max 20 characters, letters only -->
+                <label for="fname">First Name:</label>
+                <input type="text" id="fname" name="fname" maxlength="20" pattern="[A-Za-z]+" required>
+
+                <!-- Last Name: max 20 characters, letters only -->
+                <label for="lname">Last Name:</label>
+                <input type="text" id="lname" name="lname" maxlength="20" pattern="[A-Za-z]+" required>
+
+                <!-- Date of Birth: must match dd/mm/yyyy format -->
+                <label for="dob">Date of Birth:</label>
+                <input type="text" id="dob" name="dob" placeholder="dd/mm/yyyy" pattern="\d{2}/\d{2}/\d{4}" required>
+
+            </div>
+
+            <!-- Gender selection using radio buttons (only one can be selected) -->
+            <fieldset>
+                <legend>Gender</legend>
+
+                <!-- 'required' ensures at least one option is selected -->
+                <label><input type="radio" name="gender" value="male" required> Male</label>
+                <label><input type="radio" name="gender" value="female"> Female</label>
+                <label><input type="radio" name="gender" value="other"> Other</label>
+            </fieldset>
+
+            <!-- Second grid for address and contact details -->
+            <div class="form-grid">
+
+                <!-- Street address input -->
+                <label for="street">Street Address:</label>
+                <input type="text" id="street" name="street" maxlength="40" required>
+
+                <!-- Suburb or town input -->
+                <label for="suburb">Suburb/Town:</label>
+                <input type="text" id="suburb" name="suburb" maxlength="40" required>
+
+                <!-- State selection dropdown -->
+                <label for="state">State:</label>
+                <select id="state" name="state" required>
+
+         <!-- Default empty option forces user selection -->
+         <option value="">Select</option>
+
+         <!-- Australian states and territories -->
+         <option>VIC</option>
+         <option>NSW</option>
+         <option>QLD</option>
+         <option>NT</option>
+         <option>WA</option>
+         <option>SA</option>
+         <option>TAS</option>
+         <option>ACT</option>
+       </select>
+
+                <!-- Postcode: must be exactly 4 digits -->
+                <label for="postcode">Postcode:</label>
+                <input type="text" id="postcode" name="postcode" pattern="\d{4}" required>
+
+                <!-- Email input with built-in validation -->
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <!-- Phone number: must be between 8 and 12 digits -->
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="phone" name="phone" pattern="\d{8,12}" required>
+
+            </div>
+
+            <!-- Skills selection using checkboxes (multiple selections allowed) -->
+            <fieldset>
+                <legend>Skills</legend>
+
+                <!-- 'skills[]' allows multiple values to be submitted as an array -->
+                <label><input type="checkbox" name="skills[]" value="html"> HTML</label>
+                <label><input type="checkbox" name="skills[]" value="css"> CSS</label>
+                <label><input type="checkbox" name="skills[]" value="js"> JavaScript</label>
+                <label><input type="checkbox" name="skills[]" value="python"> Python</label>
+            </fieldset>
+
+            <!-- Textarea for additional skills not listed above -->
+            <label for="other">Other Skills:</label>
+            <textarea id="other" name="other"></textarea>
+
+            <!-- Submit button: sends form data -->
+            <button id="button1" type="submit" style="background-color: green; color: white;">
+       Apply
+     </button>
+
+            <!-- Reset button: clears all form inputs -->
+            <button type="reset" id="button2" value="reset" style="background-color: red; color: white;">
+       Reset
+     </button>
+
+        </form>
+
+    </main>
+
+    <!-- Footer section (currently empty) -->
+    <footer>
+        <p>
+        </p>
+    </footer>
+
+</body>
+
+</html>

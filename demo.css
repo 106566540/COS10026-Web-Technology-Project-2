@@ -1,0 +1,212 @@
+/* =========================
+   BANNER HEADING
+   Styles the main heading inside the banner section
+   ========================= */
+@media screen and (max-width: 4000px) {
+.banner h1{
+text-align: left; /* Aligns text to the left side */
+font-family: 'Times New Roman', Times, serif; /* Sets serif font style for a formal look */
+font-size: 150px; /* Very large font size for emphasis */
+font-weight:bold; /* Makes the text bold */
+color:rgb(26, 25, 25); /* White text for contrast against background image */
+ margin: 0; /* Removes default margin spacing */
+}
+
+/* =========================
+   BANNER BACKGROUND IMAGE
+   Controls the banner container appearance
+   ========================= */
+.banner{
+background-image: url("Images/download.jpg"); /* Sets background image */
+background-size: cover; /* Ensures image covers entire container */
+background-position: center; /* Centers the image */
+height:400px; /* Fixed height of banner */
+margin:0; /* Removes default margin */
+border: 3px double blue; /* Decorative double border */
+}
+
+/* =========================
+   UNIVERSAL STYLE
+   Applies to all elements
+   ========================= */
+*{
+font-family: Arial, Helvetica, sans-serif; /* Default font for consistency */
+font-size:20px /* Sets base font size */
+}
+
+/* =========================
+   NAVIGATION MENU
+   Styles navigation bar layout and links
+   ========================= */
+#topnav ul {
+display: grid; /* Uses CSS Grid layout */
+grid-template-columns: repeat(4, 25%); /* Creates 4 equal columns */
+list-style: none; /* Removes bullet points */
+margin: 0; /* Removes default margin */
+padding: 0; /* Removes default padding */
+}
+
+#topnav li {
+text-align: center; /* Centers text inside each menu item */
+}
+
+#topnav a {
+display: block; /* Makes entire area clickable */
+padding: 15px; /* Adds spacing inside links */
+background: #333; /* Dark background */
+color: white; /* White text for contrast */
+text-decoration: none; /* Removes underline */
+}
+
+nav a:hover {
+background: #c41c1c; /* Changes background color on hover */
+}
+
+/* =========================
+   PAGE TITLE
+   Styles the main heading text
+   ========================= */
+#title {
+text-align: center; /* Centers the title */
+color: red; /* Default color */
+font-size: 28px; /* Slightly larger than normal text */
+margin: 25px; /* Adds spacing around title */
+}
+
+#title:hover {
+color: blue; /* Changes color when hovered */
+}
+
+/* =========================
+   BODY STYLING (FIRST DECLARATION)
+   Adds gradient background
+   ========================= */
+body {
+background: linear-gradient(135deg, #dbeafe, #f0f9ff); /* Light gradient background */
+padding: 40px 20px; /* Adds spacing inside body */
+}
+
+/* =========================
+   FORM GRID LAYOUT
+   Aligns form fields in two columns
+   ========================= */
+.form-grid {
+display: grid; /* Enables grid layout */
+grid-template-columns:50% 50%; /* Two equal columns */
+gap: 15px; /* Space between elements */
+text-align:center; /* Centers text inside grid items */
+}
+
+/* =========================
+   UNIVERSAL BOX MODEL FIX
+   ========================= */
+* {
+box-sizing: border-box; /* Includes padding and border in element width/height */
+}
+
+/* =========================
+   BODY STYLING (SECOND DECLARATION)
+   Overrides earlier body styles
+   ========================= */
+body {
+font-family: Arial, Helvetica, sans-serif; /* Reapplies font */
+font-size: 16px; /* Overrides earlier 20px */
+background: white; /* Overrides gradient with plain white */
+margin: 0; /* Removes default margin */
+padding: 40px 20px; /* Keeps spacing */
+}
+
+/* =========================
+   MAIN CONTAINER
+   Wraps form content
+   ========================= */
+.container {
+max-width: 900px; /* Limits width for readability */
+margin: 30px auto; /* Centers container horizontally */
+background: radial-gradient(circle, lightblue, white); /* Background gradient */
+padding: 30px 40px; /* Inner spacing */
+border-radius: 10px; /* Rounded corners */
+border-color: rgb(73, 175, 206); /* Border color */
+border-style: dotted; /* Dotted border style */
+}
+
+/* =========================
+   LABELS
+   ========================= */
+label {
+text-align: right; /* Aligns labels to the right */
+font-weight: 500; /* Medium font weight */
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; /* Serif font for labels */
+}
+
+/* =========================
+   INPUT FIELDS
+   ========================= */
+input, select, textarea {
+width: 100%; /* Makes elements take full width */
+padding: 10px; /* Inner spacing */
+border: 1px solid #090909; /* Dark border */
+border-radius: 5px; /* Rounded edges */
+font-size: 15px; /* Slightly smaller text */
+}
+
+/* =========================
+   FIELDSETS (GROUPED INPUTS)
+   ========================= */
+fieldset {
+margin: 20px 0; /* Vertical spacing */
+padding: 15px; /* Inner spacing */
+border: 1px dotted #180ade; /* Dotted border */
+border-radius: 8px; /* Rounded corners */
+}
+
+legend {
+font-weight: bold; /* Emphasises section title */
+padding: 0 10px; /* Adds spacing around text */
+}
+
+/* =========================
+   CHECKBOX + RADIO LABELS
+   ========================= */
+fieldset label {
+text-align: left; /* Aligns labels to left for better readability */
+margin-right: 15px; /* Spacing between options */
+}
+
+/* =========================
+   SUBMIT BUTTON
+   ========================= */
+#button1 {
+margin-top: 15px; /* Space above button */
+padding: 10px 20px; /* Button size */
+background: greenyellow; /* Button color */
+color: white; /* Text color */
+border: none; /* Removes border */
+border-radius: 5px; /* Rounded corners */
+font-size: 16px; /* Text size */
+cursor: pointer; /* Changes cursor on hover */
+}
+
+#button1:hover {
+background: darkgreen; /* Darker shade on hover */
+}
+
+/* =========================
+   RESET BUTTON
+   ========================= */
+#button2 {
+float: right; /* Positions button to the right */
+margin-top: 15px; /* Space above button */
+padding: 10px 20px; /* Button size */
+background: rgb(219, 11, 11); /* Button color */
+color: rgb(1, 1, 1); /* Text color */
+border: none; /* Removes border */
+border-radius: 5px; /* Rounded corners */
+font-size: 16px; /* Text size */
+cursor: pointer; /* Pointer on hover */
+}
+
+#button2:hover {
+background:darkred; /* Darker red on hover */
+}
+}
