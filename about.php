@@ -33,10 +33,10 @@
 
     <!-- Top navigation bar -->
     <div class="topnav">
-        <a href="index.html">Home</a>
-        <a href="apply.html">Apply Now</a>
+        <a href="index.php">Home</a>
+        <a href="apply.php">Apply Now</a>
         <a href="jobs.php">Jobs</a>
-        <a class="active" href="about.html">About Us</a>
+        <a class="active" href="about.php">About Us</a>
     </div>
 
     <main class="content">

@@ -17,10 +17,10 @@
     <!-- navigation and logo  -->
     <img src="Images/logo.png" alt="Description of the image" class=" logo">
     <div class="topnav">
-        <a class="active" href="index.html">Home</a>
-        <a href="apply.html">Apply Now</a>
+        <a class="active" href="index.php">Home</a>
+        <a href="apply.php">Apply Now</a>
         <a href="jobs.php">Jobs</a>
-        <a href="about.html">About Us</a>
+        <a href="about.php">About Us</a>
         <a href="login.php">Management</a>
     </div>
 
