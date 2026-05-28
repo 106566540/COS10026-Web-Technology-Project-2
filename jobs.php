@@ -36,6 +36,7 @@ $result = mysqli_query($conn, $query);
         <a href="apply.html">Apply Now</a>
         <a class="active" href="jobs.php">Jobs</a>
         <a href="about.html">About Us</a>
+        <a href="login.php">Management</a>
     </div>
 
     <div style="background-image: url('Images/background.png'); background-size: cover; background-position: center;">
