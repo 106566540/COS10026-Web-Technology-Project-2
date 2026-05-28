@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -160,6 +162,62 @@
             </p>
         </section>
     </main>
+    <h1>Contribution table</h1>
+
+    <?php
+
+    require_once "settings.php";
+    
+
+    $dbconn = @mysqli_connect($host, $user, $pwd, $sql_db);
+
+    if ($dbconn) {
+
+        $query = "SELECT * FROM members";
+        $result = mysqli_query($dbconn, $query);
+
+
+        if ($result && mysqli_num_rows($result) > 0) {
+            
+
+            echo "<table border='1'>\n";
+            echo "<tr>\n";
+            echo "<th>#</th>\n";
+            echo "<th>Name</th>\n";
+            echo "<th>Student ID.</th>\n";
+            echo "<th>Project 1 </th>\n";
+            echo "<th>Project 2</th>\n";
+            echo "</tr>\n";
+
+
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo "<tr>\n";
+                echo "<td>" . htmlspecialchars($row['id']) . "</td>\n";
+                echo "<td>" . htmlspecialchars($row['name']) . "</td>\n";
+                echo "<td>" . htmlspecialchars($row['student_id']) . "</td>\n";
+                echo "<td>" . htmlspecialchars($row['project1_contrib']) . "</td>\n";
+                echo "<td>" . htmlspecialchars($row['project2_contrib']) . "</td>\n";
+                echo "</tr>\n";
+            }
+
+
+            echo "</table>\n";
+            
+
+            mysqli_free_result($result);
+
+        } else {
+
+            echo "<p>There are no students to display.</p>";
+        }
+
+
+        mysqli_close($dbconn);
+
+    } else {
+        echo "<p>Unable to connect to the db.</p>";
+    }
+    ?>
 
 </body>
 
