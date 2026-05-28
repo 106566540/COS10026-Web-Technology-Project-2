@@ -30,13 +30,11 @@
     <img src="Images/logo.png" alt="Description of the image" class=" logo">
 
     <!-- Top navigation bar -->
-    <div class="topnav">
-        <a href="index.html">Home</a>
-        <a href="apply.html">Apply Now</a>
-        <a href="jobs.php">Jobs</a>
-        <a class="active" href="about.html">About Us</a>
-        <a href="login.php">Management</a>
-    </div>
+    <?php
+        $page = "about";
+    ?>
+
+    <?php include 'nav.inc'; ?>
 
     <main class="content">
         <h1>About Our Team</h1>
