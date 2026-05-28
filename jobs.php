@@ -15,7 +15,9 @@ $result = mysqli_query($conn, $query);
     <meta name="author" content="Harry McDonald">
     <meta name="keywords" content="html, css, jobs">
     <title>Jobs</title>
+
     <link rel="stylesheet" type="text/css" href="style.css">
+
     <style>
         h2 {
             color: red;
@@ -26,75 +28,105 @@ $result = mysqli_query($conn, $query);
 </head>
 
 <body>
-    <img src="Images/logo.png" alt="Description of the image" class=" logo">
 
-    <!-- Top navigation bar, courtesy of Maxwell -->
+    <img src="Images/logo.png" alt="Logo" class="logo">
+
     <div class="topnav">
         <a href="index.html">Home</a>
         <a href="apply.html">Apply Now</a>
-        <a class="active" href="jobs.html">Jobs</a>
+        <a class="active" href="jobs.php">Jobs</a>
         <a href="about.html">About Us</a>
     </div>
 
-    <!-- Main page content -->
-
     <div style="background-image: url('Images/background.png'); background-size: cover; background-position: center;">
-        <div class="content">
-            <h1>Job Listings</h1>
-            <!-- Refer to style.css for aside styling -->
-            <aside>
-                <p>All positions that are currently available, including details on responsibilities and requirements, as well as salaries.</p>
-            </aside>
-            <section>
-                <!-- Web Developer Job Posting -->
-                <h2>Web Developer</h2>
-                <p><strong>Reference Number:</strong> REF001</p>
-                <p><strong>Description:</strong> Building web pages designed to be responsive, accessible, and user-friendly, to assist in teaching and learning. Involves HTML, CSS and JavaScript usage in a team enviroment where everybody is assigned a role
-                    based on preferences.</p>
-                <p><strong>Salary and Benefits:</strong> $90,000 - $110,000 per year, 4 weeks paid annual leave, other benefits such as health insurance and retirement plans.</p>
-                <p><strong>Reporting Line:</strong> Team Lead</p>
-                <p><strong>Key Responsibilities:</strong> Writing HTML, CSS, and/or JavaScript to create the webpage as specified by the web design team.</p>
-                <!--AI used for required and desirable skills-->
-                <p><strong>Essential Skills:</strong></p>
-                <ol>
-                    <li>Knowledge of at least one of HTML, CSS, and JavaScript</li>
-                    <li>Experience with responsive design and cross-browser compatibility</li>
-                    <li>Strong problem-solving skills and attention to detail</li>
-                </ol>
-                <p><strong>Desirable Skills:</strong></p>
-                <ul>
-                    <li>Experience with front-end frameworks such as React or Angular</li>
-                    <li>Knowledge of back-end technologies such as Node.js or PHP</li>
-                    <li>Familiarity with version control systems like Git</li>
-                </ul>
-                <p style="font-family: cursive;"><strong>Intern Level Position</strong></p>
-            </section>
 
-            <section>
-                <!-- Web Designer Job Posting -->
-                <!-- Used AI to generate this section for ease of development -->
-                <h2>Web Designer</h2>
-                <p><strong>Reference Number:</strong> REF002</p>
-                <p><strong>Description:</strong> We are looking for a talented Web Designer to create visually appealing and user-friendly interfaces.</p>
-                <p><strong>Salary:</strong> $80,000 - $100,000 per year</p>
-                <p><strong>Reporting Line:</strong> Team Lead</p>
-                <p><strong>Key Responsibilities:</strong> Designing and creating web pages and user interfaces that are both aesthetically pleasing and functional, whilst also being accessible and inclusive for everybody.</p>
-                <p><strong>Essential Skills:</strong></p>
-                <ol>
-                    <li>Proficiency in design tools such as Adobe Photoshop, Illustrator, or Figma</li>
-                    <li>Understanding of accessibility principles, and how to make designs inclusive for all users</li>
-                    <li>Understanding of user experience (UX) principles and user interface (UI) design</li>
-                    <li>Knowledge of HTML and CSS for implementing designs</li>
-                </ol>
-                <p><strong>Desirable Skills:</strong></p>
-                <ul>
-                    <li>Experience with prototyping tools like Sketch or InVision</li>
-                    <li>Familiarity with front-end development technologies</li>
-                    <li>Understanding of brand identity and visual communication</li>
-                </ul>
-                <p style="font-family: cursive;"><strong>Intern Level Position</strong></p>
-            </section>
+        <div class="content">
+
+            <h1>Job Listings</h1>
+
+            <aside>
+                <p>
+                    All positions that are currently available, including details on
+                    responsibilities and requirements, as well as salaries.
+                </p>
+            </aside>
+
+            <?php
+            if (mysqli_num_rows($result) > 0) {
+
+                while ($row = mysqli_fetch_assoc($result)) {
+
+                    $essentialSkills = explode("|", $row['essential_skills']);
+                    $desirableSkills = explode("|", $row['desirable_skills']);
+            ?>
+
+                    <section>
+
+                        <h2><?php echo $row['title']; ?></h2>
+
+                        <p>
+                            <strong>Reference Number:</strong>
+                            <?php echo $row['reference_number']; ?>
+                        </p>
+
+                        <p>
+                            <strong>Description:</strong>
+                            <?php echo $row['description']; ?>
+                        </p>
+
+                        <p>
+                            <strong>Salary and Benefits:</strong>
+                            <?php echo $row['salary']; ?>
+                        </p>
+
+                        <p>
+                            <strong>Reporting Line:</strong>
+                            <?php echo $row['reporting_line']; ?>
+                        </p>
+
+                        <p>
+                            <strong>Key Responsibilities:</strong>
+                            <?php echo $row['responsibilities']; ?>
+                        </p>
+
+                        <p><strong>Essential Skills:</strong></p>
+
+                        <ol>
+                            <?php
+                            foreach ($essentialSkills as $skill) {
+                                echo "<li>$skill</li>";
+                            }
+                            ?>
+                        </ol>
+
+                        <p><strong>Desirable Skills:</strong></p>
+
+                        <ul>
+                            <?php
+                            foreach ($desirableSkills as $skill) {
+                                echo "<li>$skill</li>";
+                            }
+                            ?>
+                        </ul>
+
+                        <p style="font-family: cursive;">
+                            <strong><?php echo $row['position_level']; ?></strong>
+                        </p>
+
+                    </section>
+
+            <?php
+                }
+            } else {
+                echo "<p>No jobs available.</p>";
+            }
+
+            mysqli_close($conn);
+            ?>
+
         </div>
+    </div>
+
 </body>
 
 </html>
