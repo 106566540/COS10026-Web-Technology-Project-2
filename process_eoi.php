@@ -1,5 +1,5 @@
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
-header(loaction : "apply.php");
+header(location : "apply.php");
 exit();
 }
 require_once("settings.php");
