@@ -3,7 +3,7 @@ header(loaction : "apply.php");
 exit();
 }
 require_once("settings.php");
-$conn= mysqli_connect($host, $user, $pwd, job_portal);
+$conn= mysqli_connect($host, $user, $pwd, $sql_db);
 if (!$conn) {
 die("Database connection failed:". mysqli_connect_error());
 }
