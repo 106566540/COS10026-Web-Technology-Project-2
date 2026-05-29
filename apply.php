@@ -144,8 +144,7 @@
 
     <!-- Footer section (currently empty) -->
     <footer>
-        <p>
-        </p>
+        <?php include 'footer.inc'; ?>
     </footer>
 
 </body>

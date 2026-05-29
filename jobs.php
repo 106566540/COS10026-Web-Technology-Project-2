@@ -29,12 +29,11 @@ $result = mysqli_query($conn, $query);
 
 <body>
 
-    <img src="Images/logo.png" alt="Logo" class="logo">
+
     <?php
         $page = "jobs";
-    ?>
-
-    <?php include 'nav.inc'; ?>
+        include 'header.inc';
+        include 'nav.inc'; ?>
   
 
     <div style="background-image: url('Images/background.png'); background-size: cover; background-position: center;">
@@ -125,7 +124,7 @@ $result = mysqli_query($conn, $query);
 
         </div>
     </div>
-
+    <?php include 'footer.inc'; ?>
 </body>
 
 </html>

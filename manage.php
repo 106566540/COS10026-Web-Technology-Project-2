@@ -1,6 +1,5 @@
 <?php
 session_start();
-#include 'header.inc';
 
     $page = "manage";
     include 'header.inc';
@@ -12,5 +11,5 @@ if (isset($_SESSION['user'])) {
     header('Location: login.html');
     exit();
 }
-#include 'footer.inc';
+include 'footer.inc';
 ?>
