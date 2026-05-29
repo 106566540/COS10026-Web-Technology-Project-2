@@ -21,7 +21,7 @@
 <body>
 
     <?php
-        $page = "about";
+        $page = "apply";
         include 'header.inc';
         include 'nav.inc'; ?>
 

@@ -16,7 +16,7 @@
 <body>
     <!-- navigation and logo  -->
     <?php
-        $page = "about";
+        $page = "home";
         include 'header.inc';
         include 'nav.inc'; ?>
 
