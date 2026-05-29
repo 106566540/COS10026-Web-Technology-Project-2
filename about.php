@@ -179,7 +179,7 @@
         if ($result && mysqli_num_rows($result) > 0) {
             
 
-           echo "<table border='1' class='fun-facts'>\n";
+            echo "<table border='1' class='fun-facts'>\n";
             echo "<tr>\n";
             echo "<th>#</th>\n";
             echo "<th>Name</th>\n";
