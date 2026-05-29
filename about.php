@@ -29,14 +29,13 @@
 </head>
 
 <body>
-    <img src="Images/logo.png" alt="Description of the image" class=" logo">
+    
 
     <!-- Top navigation bar -->
     <?php
         $page = "about";
-    ?>
-
-    <?php include 'nav.inc'; ?>
+        include 'header.inc';
+        include 'nav.inc'; ?>
 
     <main class="content">
         <h1>About Our Team</h1>

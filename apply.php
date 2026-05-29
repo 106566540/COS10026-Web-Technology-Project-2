@@ -20,13 +20,10 @@
 
 <body>
 
-    <img src="Images/logo.png" alt="Description of the image" class=" logo">
-    <!-- Top navigation bar, courtesy of Maxwell -->
     <?php
-        $page = "apply";
-    ?>
-
-    <?php include 'nav.inc'; ?>
+        $page = "about";
+        include 'header.inc';
+        include 'nav.inc'; ?>
 
     <!-- Banner section displaying page heading -->
     <div class="banner">

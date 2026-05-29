@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="style.css">
+
 <div class="topnav">
     <a class="<?php echo ($page == 'home') ? 'active' : ''; ?>" href="index.php">Home</a>
 

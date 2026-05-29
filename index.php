@@ -15,12 +15,10 @@
 
 <body>
     <!-- navigation and logo  -->
-    <img src="Images/logo.png" alt="Description of the image" class=" logo">
-  <?php
-        $page = "home";
-    ?>
-
-    <?php include 'nav.inc'; ?>
+    <?php
+        $page = "about";
+        include 'header.inc';
+        include 'nav.inc'; ?>
 
     <div class="content">
         <!--background image -->
