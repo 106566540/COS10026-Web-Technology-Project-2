@@ -7,7 +7,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Sets character encoding to UTF-8 for proper text display -->
+    <meta name="description" content="Job Application Page" />
+    <meta name="keywords" content="Job, Apply, Information, Form" />
+    <meta name="author" content="Shubh"  />
+ <!-- Sets character encoding to UTF-8 for proper text display -->
 
     <title>Apply</title>
     <!-- Title displayed on the browser tab -->
