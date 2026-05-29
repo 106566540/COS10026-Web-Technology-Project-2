@@ -30,3 +30,8 @@ $email = sanitise_input($_POST["email"]);
 $phone = sanitise_input($_POST["phone"]);
 
 $other_skills = sanitise_input($_POST["other"]);
+if (isset($_POST["skills"])) {
+    $skills = implode(",", $_POST["skills"]);
+} else {
+    $skills = "";
+}
