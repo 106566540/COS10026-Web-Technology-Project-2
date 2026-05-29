@@ -40,26 +40,26 @@
         <h1 id="title">JOB APPLICATION</h1>
 
         <!-- Form element: sends data using POST method to external test server -->
-        <form method="post" action="process_eoi.php" novalidate>
+        <form method="POST" action="process_eoi.php" novalidate>
 
             <!-- Grid layout for aligning form fields -->
             <div class="form-grid">
 
                 <!-- Job Reference Number: must be exactly 5 alphanumeric characters -->
                 <label for="jobRef">Job Reference Number:</label>
-                <input type="text" id="jobRef" name="jobRef" pattern="[A-Za-z0-9]{5}" required>
+                <input type="text" id="jobRef" name="jobRef" >
 
                 <!-- First Name: max 20 characters, letters only -->
                 <label for="fname">First Name:</label>
-                <input type="text" id="fname" name="fname" maxlength="20" pattern="[A-Za-z]+" required>
+                <input type="text" id="fname" name="fname" >
 
                 <!-- Last Name: max 20 characters, letters only -->
                 <label for="lname">Last Name:</label>
-                <input type="text" id="lname" name="lname" maxlength="20" pattern="[A-Za-z]+" required>
+                <input type="text" id="lname" name="lname"  >
 
                 <!-- Date of Birth: must match dd/mm/yyyy format -->
                 <label for="dob">Date of Birth:</label>
-                <input type="text" id="dob" name="dob" placeholder="dd/mm/yyyy" pattern="\d{2}/\d{2}/\d{4}" required>
+                <input type="text" id="dob" name="dob" placeholder="dd/mm/yyyy"  >
 
             </div>
 
@@ -78,15 +78,15 @@
 
                 <!-- Street address input -->
                 <label for="street">Street Address:</label>
-                <input type="text" id="street" name="street" maxlength="40" required>
+                <input type="text" id="street" name="street">
 
                 <!-- Suburb or town input -->
                 <label for="suburb">Suburb/Town:</label>
-                <input type="text" id="suburb" name="suburb" maxlength="40" required>
+                <input type="text" id="suburb" name="suburb" >
 
                 <!-- State selection dropdown -->
                 <label for="state">State:</label>
-                <select id="state" name="state" required>
+                <select id="state" name="state" >
 
          <!-- Default empty option forces user selection -->
          <option value="">Select</option>
@@ -104,15 +104,15 @@
 
                 <!-- Postcode: must be exactly 4 digits -->
                 <label for="postcode">Postcode:</label>
-                <input type="text" id="postcode" name="postcode" pattern="\d{4}" required>
+                <input type="text" id="postcode" name="postcode"  >
 
                 <!-- Email input with built-in validation -->
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" >
 
                 <!-- Phone number: must be between 8 and 12 digits -->
                 <label for="phone">Phone Number:</label>
-                <input type="text" id="phone" name="phone" pattern="\d{8,12}" required>
+                <input type="text" id="phone" name="phone" >
 
             </div>
 

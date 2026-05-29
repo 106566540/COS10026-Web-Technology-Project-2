@@ -1,3 +1,5 @@
+#AI used for conversion between HTML and PHP, along with making this page dynamic to fetch job listings from the database.
+
 <?php
 require_once("settings.php");
 
@@ -50,10 +52,11 @@ $result = mysqli_query($conn, $query);
             </aside>
 
             <?php
+            # Check if there are any job listings in the database and display them
             if (mysqli_num_rows($result) > 0) {
-
+# Loop through each job listing and display its details
                 while ($row = mysqli_fetch_assoc($result)) {
-
+# Split the essential and desirable skills into arrays for display
                     $essentialSkills = explode("|", $row['essential_skills']);
                     $desirableSkills = explode("|", $row['desirable_skills']);
             ?>

@@ -75,7 +75,7 @@
         </section>
 
         <section>
-            <h2>Member Contributions and Quotes</h2>
+            <h2>Member Contributions and Quotes For Part 1</h2>
             <dl>
                 <dt>Maxwell Ryan - <span class="student-id">106566540</span></dt>
                 <dd>Contributions:
@@ -179,7 +179,7 @@
         if ($result && mysqli_num_rows($result) > 0) {
             
 
-            echo "<table border='1'>\n";
+            echo "<table border='1' class='fun-facts'>\n";
             echo "<tr>\n";
             echo "<th>#</th>\n";
             echo "<th>Name</th>\n";
