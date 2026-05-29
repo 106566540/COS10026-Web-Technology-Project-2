@@ -40,7 +40,7 @@
         <h1 id="title">JOB APPLICATION</h1>
 
         <!-- Form element: sends data using POST method to external test server -->
-        <form method="POST" action="https://mercury.swin.edu.au/it000000/formtest.php">
+        <form method="POST" action="process_eoi.php" novalidate>
 
             <!-- Grid layout for aligning form fields -->
             <div class="form-grid">
