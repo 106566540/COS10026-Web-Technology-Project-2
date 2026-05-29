@@ -1,21 +1,23 @@
 <?php
 session_start();
+require_once "settings.php";
 
-// Get form data safely
-$username = $_POST['username'] ?? '';
-$password = $_POST['password'] ?? '';
-$token = $_POST['token'] ?? ''; // from hidden field
+$username = $_POST["username"] ?? "";
+$password = $_POST["password"] ?? "";
 
-// Simple login check
-if ($username == 'admin' && $password == 'admin') {
-    $_SESSION['user'] = $username;
+$stmt = mysqli_prepare($conn, "SELECT password FROM users WHERE username = ?");
+mysqli_stmt_bind_param($stmt, "s", $username);
+mysqli_stmt_execute($stmt);
 
-    // Optional: store token in session (if needed for your assignment)
-    $_SESSION['token'] = $token;
+$result = mysqli_stmt_get_result($stmt);
 
-    header('Location: manage.php');
-    exit();
-} else {
-    echo "Invalid login. <a href='login.php'>Try again</a>";
+if ($row = mysqli_fetch_assoc($result)) {
+    if (password_verify($password, $row["password"])) {
+        $_SESSION["user"] = $username;
+        header("Location: manage.php");
+        exit();
+    }
 }
+
+echo "Invalid login. <a href='login.php'>Try again</a>";
 ?>
