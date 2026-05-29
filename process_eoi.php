@@ -2,3 +2,4 @@
 header(loaction : "apply.php");
 exit();
 }
+require_once("settings.php")
