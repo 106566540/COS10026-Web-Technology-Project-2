@@ -23,7 +23,7 @@
     <div class="content">
         <!--background image -->
 
-        <div style="background-image: url('Images/background.png'); background-size: cover; background-position: center;">
+        <div style="background-image: url('images/background.png'); background-size: cover; background-position: center;">
             <h1>Power Ed</h1>
             <p> Power Through Learning</p>
             <br>

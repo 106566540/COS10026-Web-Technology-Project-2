@@ -17,7 +17,7 @@ color:rgb(26, 25, 25); /* White text for contrast against background image */
    Controls the banner container appearance
    ========================= */
 .banner{
-background-image: url("Images/download.jpg"); /* Sets background image */
+background-image: url("images/download.jpg"); /* Sets background image */
 background-size: cover; /* Ensures image covers entire container */
 background-position: center; /* Centers the image */
 height:400px; /* Fixed height of banner */

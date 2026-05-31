@@ -38,7 +38,7 @@ $result = mysqli_query($conn, $query);
         include 'nav.inc'; ?>
   
 
-    <div style="background-image: url('Images/background.png'); background-size: cover; background-position: center;">
+    <div style="background-image: url('images/background.png'); background-size: cover; background-position: center;">
 
         <div class="content">
 
@@ -63,31 +63,31 @@ $result = mysqli_query($conn, $query);
 
                     <section>
 
-                        <h2><?php echo $row['title']; ?></h2>
+                        <h2><?php echo htmlspecialchars($row['title']); ?></h2>
 
                         <p>
                             <strong>Reference Number:</strong>
-                            <?php echo $row['reference_number']; ?>
+                            <?php echo htmlspecialchars($row['reference_number']); ?>
                         </p>
 
                         <p>
                             <strong>Description:</strong>
-                            <?php echo $row['description']; ?>
+                            <?php echo htmlspecialchars($row['description']); ?>
                         </p>
 
                         <p>
                             <strong>Salary and Benefits:</strong>
-                            <?php echo $row['salary']; ?>
+                            <?php echo htmlspecialchars($row['salary']); ?>
                         </p>
 
                         <p>
                             <strong>Reporting Line:</strong>
-                            <?php echo $row['reporting_line']; ?>
+                            <?php echo htmlspecialchars($row['reporting_line']); ?>
                         </p>
 
                         <p>
                             <strong>Key Responsibilities:</strong>
-                            <?php echo $row['responsibilities']; ?>
+                            <?php echo htmlspecialchars($row['responsibilities']); ?>
                         </p>
 
                         <p><strong>Essential Skills:</strong></p>
@@ -95,7 +95,7 @@ $result = mysqli_query($conn, $query);
                         <ol>
                             <?php
                             foreach ($essentialSkills as $skill) {
-                                echo "<li>$skill</li>";
+                                echo htmlspecialchars("<li>$skill</li>");
                             }
                             ?>
                         </ol>
@@ -105,13 +105,13 @@ $result = mysqli_query($conn, $query);
                         <ul>
                             <?php
                             foreach ($desirableSkills as $skill) {
-                                echo "<li>$skill</li>";
+                                echo htmlspecialchars("<li>$skill</li>");
                             }
                             ?>
                         </ul>
 
                         <p style="font-family: cursive;">
-                            <strong><?php echo $row['position_level']; ?></strong>
+                            <strong><?php echo htmlspecialchars($row['position_level']); ?></strong>
                         </p>
 
                     </section>

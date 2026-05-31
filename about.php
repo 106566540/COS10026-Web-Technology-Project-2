@@ -69,7 +69,7 @@
         <section>
             <h2>Group Photo</h2>
             <figure class="group-photo">
-                <img src="Images/group.jpg" alt="Group photo of Rahul and the Chipmunks team members" width="450">
+                <img src="images/group.jpg" alt="Group photo of Rahul and the Chipmunks team members" width="450">
                 <figcaption>Rahul and the Chipmunks working together on the Power Ed website project.</figcaption>
             </figure>
         </section>
