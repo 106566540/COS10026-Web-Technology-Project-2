@@ -1,6 +1,6 @@
+<?php
 #AI used for conversion between HTML and PHP, along with making this page dynamic to fetch job listings from the database.
 
-<?php
 require_once("settings.php");
 
 $query = "SELECT * FROM jobs";
