@@ -67,8 +67,7 @@
             <fieldset>
                 <legend>Gender</legend>
 
-                <!-- 'required' ensures at least one option is selected -->
-                <label><input type="radio" name="gender" value="male" required> Male</label>
+                <label><input type="radio" name="gender" value="male"> Male</label>
                 <label><input type="radio" name="gender" value="female"> Female</label>
                 <label><input type="radio" name="gender" value="other"> Other</label>
             </fieldset>

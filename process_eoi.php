@@ -107,8 +107,9 @@ exit();
 }
 
 // Insert into DB and confirm auto generated EOI number
-$query = "INSERT INTO eoi (jobRef, first_name, last_name, dob, gender, street, suburb, state, postcode, email, phone, skills, other_skills)
-          VALUES ('$jobRef', '$fname', '$lname', '$dob', '$gender', '$street', '$suburb', '$state', '$postcode', '$email', '$phone', '$skills', '$other_skills')";
+ $query = "INSERT INTO eoi 
+(job_reference, first_name, last_name, dob, gender, street_address, suburb, state, postcode, email, phone, skills, other_skills)
+VALUES ('$jobRef', '$fname', '$lname', '$dob', '$gender', '$street', '$suburb', '$state', '$postcode', '$email', '$phone', '$skills', '$other_skills')";
 
 if (mysqli_query($conn, $query)) {
     $eoiNumber = mysqli_insert_id($conn);
@@ -118,3 +119,5 @@ if (mysqli_query($conn, $query)) {
     echo "<p>Error saving application: " . mysqli_error($conn) . "</p>";
 }
 
+ mysqli_close($conn);
+ ?>
