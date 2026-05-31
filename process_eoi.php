@@ -102,6 +102,8 @@ if (!empty($errors)) {
         echo "<p>$error</p>";
     }
 mysqli_close($conn);
+exit();
+}
 
 // Insert into DB and confirm auto generated EOI number
 $query = "INSERT INTO eoi (jobRef, fname, lname, dob, gender, street, suburb, state, postcode, email, phone, skills, other_skills)
