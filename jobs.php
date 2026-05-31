@@ -95,7 +95,7 @@ $result = mysqli_query($conn, $query);
                         <ol>
                             <?php
                             foreach ($essentialSkills as $skill) {
-                                echo htmlspecialchars("<li>$skill</li>");
+                                echo "<li>$skill</li>";
                             }
                             ?>
                         </ol>
@@ -105,7 +105,7 @@ $result = mysqli_query($conn, $query);
                         <ul>
                             <?php
                             foreach ($desirableSkills as $skill) {
-                                echo htmlspecialchars("<li>$skill</li>");
+                                echo "<li>$skill</li>";
                             }
                             ?>
                         </ul>
