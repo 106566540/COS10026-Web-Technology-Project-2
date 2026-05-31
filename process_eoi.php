@@ -1,13 +1,17 @@
- <?php
-  if ($_SERVER["REQUEST_METHOD"] != "POST") {
-header("Location: apply.php");
-exit();
+<?php
+if ($_SERVER["REQUEST_METHOD"] != "POST") {
+    header("Location: apply.php");
+    exit();
 }
+
+$page = "apply";
+
 require_once("settings.php");
-$conn= mysqli_connect($host, $user, $pwd, $sql_db);
+
 if (!$conn) {
-die("Database connection failed:". mysqli_connect_error());
+    die("Database connection failed:" . mysqli_connect_error());
 }
+
 function sanitise_input($data) {
     $data = trim($data);
     $data = stripslashes($data);
@@ -15,24 +19,25 @@ function sanitise_input($data) {
     return $data;
 }
 
+$jobRef = sanitise_input($_POST["jobRef"] ?? "");
+$fname = sanitise_input($_POST["fname"] ?? "");
+$lname = sanitise_input($_POST["lname"] ?? "");
+$dob = sanitise_input($_POST["dob"] ?? "");
+$gender = sanitise_input($_POST["gender"] ?? "");
 
-$jobRef = sanitise_input($_POST["jobRef"]);
-$fname = sanitise_input($_POST["fname"]);
-$lname = sanitise_input($_POST["lname"]);
-$dob = sanitise_input($_POST["dob"]);
-$gender = sanitise_input($_POST["gender"]);
+$street = sanitise_input($_POST["street"] ?? "");
+$suburb = sanitise_input($_POST["suburb"] ?? "");
+$state = sanitise_input($_POST["state"] ?? "");
+$postcode = sanitise_input($_POST["postcode"] ?? "");
 
-$street = sanitise_input($_POST["street"]);
-$suburb = sanitise_input($_POST["suburb"]);
-$state = sanitise_input($_POST["state"]);
-$postcode = sanitise_input($_POST["postcode"]);
+$email = sanitise_input($_POST["email"] ?? "");
+$phone = sanitise_input($_POST["phone"] ?? "");
 
-$email = sanitise_input($_POST["email"]);
-$phone = sanitise_input($_POST["phone"]);
+$other_skills = sanitise_input($_POST["other"] ?? "");
 
-$other_skills = sanitise_input($_POST["other"]);
 if (isset($_POST["skills"])) {
-    $skills = implode(",", $_POST["skills"]);
+    $clean_skills = array_map("sanitise_input", $_POST["skills"]);
+    $skills = implode(",", $clean_skills);
 } else {
     $skills = "";
 }
@@ -95,29 +100,63 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 if (!preg_match("/^[0-9]{8,12}$/", $phone)) {
     $errors[] = "Phone number must contain 8 to 12 digits only.";
 }
+
+include "header.inc";
+include "nav.inc";
+
+echo "<main class='content'>";
+
 if (!empty($errors)) {
 
     echo "<h2>Validation Errors</h2>";
 
     foreach ($errors as $error) {
-        echo "<p>$error</p>";
+        echo "<p>" . htmlspecialchars($error) . "</p>";
     }
-mysqli_close($conn);
-exit();
+
+    echo "<p><a href='apply.php'>Return to application form</a></p>";
+
+    echo "</main>";
+    mysqli_close($conn);
+    include "footer.inc";
+    exit();
 }
 
 // Insert into DB and confirm auto generated EOI number
- $query = "INSERT INTO eoi 
+$query = "INSERT INTO eoi 
 (job_reference, first_name, last_name, dob, gender, street_address, suburb, state, postcode, email, phone, skills, other_skills)
-VALUES ('$jobRef', '$fname', '$lname', '$dob', '$gender', '$street', '$suburb', '$state', '$postcode', '$email', '$phone', '$skills', '$other_skills')";
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-if (mysqli_query($conn, $query)) {
+$stmt = mysqli_prepare($conn, $query);
+
+mysqli_stmt_bind_param(
+        $stmt,
+        "sssssssssssss",
+        $jobRef,
+        $fname,
+        $lname,
+        $dob,
+        $gender,
+        $street,
+        $suburb,
+        $state,
+        $postcode,
+        $email,
+        $phone,
+        $skills,
+        $other_skills
+);
+
+if (mysqli_stmt_execute($stmt)) {
     $eoiNumber = mysqli_insert_id($conn);
     echo "<h2>Application Submitted Successfully!</h2>";
-    echo "<p>Thank you, <strong>$fname $lname</strong>. Your EOI number is: <strong>$eoiNumber</strong></p>";
+    echo "<p>Thank you, <strong>" . htmlspecialchars($fname) . " " . htmlspecialchars($lname) . "</strong>. Your EOI number is: <strong>" . htmlspecialchars($eoiNumber) . "</strong></p>";
 } else {
-    echo "<p>Error saving application: " . mysqli_error($conn) . "</p>";
+    echo "<p>Error saving application: " . htmlspecialchars(mysqli_error($conn)) . "</p>";
 }
 
- mysqli_close($conn);
- ?>
+echo "</main>";
+
+mysqli_close($conn);
+include "footer.inc";
+?>
