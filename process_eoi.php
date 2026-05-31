@@ -1,4 +1,5 @@
-  if ($_SERVER["REQUEST_METHOD"] != "POST") {
+<?php
+if ($_SERVER["REQUEST_METHOD"] != "POST") {
 header(location : "apply.php");
 exit();
 }
@@ -35,3 +36,4 @@ if (isset($_POST["skills"])) {
 } else {
     $skills = "";
 }
+?>
