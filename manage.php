@@ -3,21 +3,25 @@ session_start();
 
 $page = "manage";
 
+// Redirect users who are not logged in
 if (!isset($_SESSION['user'])) {
     header('Location: login.php');
     exit();
 }
 
+// Load database connection
 include 'settings.php';
 
 if (!$conn) {
     die("Database connection failed: " . mysqli_connect_error());
 }
 
+// Clean user input before using/displaying it
 function sanitise($data) {
     return htmlspecialchars(stripslashes(trim($data)));
 }
 
+// Delete all EOIs for a selected job reference
 if (isset($_POST['delete'])) {
     $job_ref = sanitise($_POST['job_ref_delete']);
 
@@ -25,6 +29,7 @@ if (isset($_POST['delete'])) {
     mysqli_query($conn, $query);
 }
 
+// Update the status of one selected EOI
 if (isset($_POST['update_status'])) {
     $eoi_id = sanitise($_POST['eoi_id']);
     $status = sanitise($_POST['status']);
@@ -33,6 +38,7 @@ if (isset($_POST['update_status'])) {
     mysqli_query($conn, $query);
 }
 
+// Store search conditions before building the final query
 $where = [];
 
 if (!empty($_GET['job_ref'])) {
@@ -50,6 +56,7 @@ if (!empty($_GET['last_name'])) {
     $where[] = "last_name LIKE '%$last_name%'";
 }
 
+// Only allow sorting by these database fields
 $allowed_sort = ['EOInumber', 'job_reference', 'first_name', 'last_name', 'status'];
 $sort = 'EOInumber';
 
@@ -57,6 +64,7 @@ if (!empty($_GET['sort']) && in_array($_GET['sort'], $allowed_sort)) {
     $sort = $_GET['sort'];
 }
 
+// Build the EOI listing query
 $query = "SELECT * FROM eoi";
 
 if (count($where) > 0) {
@@ -78,6 +86,7 @@ include 'nav.inc';
 
         <h2>Search EOIs</h2>
 
+        <!-- GET is used because searching does not change the database -->
         <form method="get" action="manage.php" novalidate>
             <label for="job_ref">Job Reference:</label>
             <input type="text" name="job_ref" id="job_ref">
@@ -110,6 +119,7 @@ include 'nav.inc';
 
         <h2>Delete EOIs by Job Reference</h2>
 
+        <!-- POST is used because deleting changes the database -->
         <form method="post" action="manage.php" novalidate>
             <label for="job_ref_delete">Job Reference:</label>
             <input type="text" name="job_ref_delete" id="job_ref_delete">
@@ -131,6 +141,7 @@ include 'nav.inc';
                 <th>Update Status</th>
             </tr>
 
+            <!-- Display each EOI returned by the query -->
             <?php while ($row = mysqli_fetch_assoc($result)) { ?>
                 <tr>
                     <td><?php echo htmlspecialchars($row['EOInumber']); ?></td>
@@ -142,6 +153,7 @@ include 'nav.inc';
                     <td><?php echo htmlspecialchars($row['status']); ?></td>
                     <td>
                         <form method="post" action="manage.php" novalidate>
+                            <!-- Hidden ID tells PHP which EOI to update -->
                             <input type="hidden" name="eoi_id" value="<?php echo htmlspecialchars($row['EOInumber']); ?>">
 
                             <select name="status">
