@@ -107,7 +107,7 @@ exit();
 }
 
 // Insert into DB and confirm auto generated EOI number
-$query = "INSERT INTO eoi (jobRef, fname, lname, dob, gender, street, suburb, state, postcode, email, phone, skills, other_skills)
+$query = "INSERT INTO eoi (jobRef, first_name, last_name, dob, gender, street, suburb, state, postcode, email, phone, skills, other_skills)
           VALUES ('$jobRef', '$fname', '$lname', '$dob', '$gender', '$street', '$suburb', '$state', '$postcode', '$email', '$phone', '$skills', '$other_skills')";
 
 if (mysqli_query($conn, $query)) {
