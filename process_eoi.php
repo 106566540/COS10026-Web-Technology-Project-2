@@ -117,7 +117,3 @@ if (mysqli_query($conn, $query)) {
     echo "<p>Error saving application: " . mysqli_error($conn) . "</p>";
 }
 
-
-   
-    exit();
-}
