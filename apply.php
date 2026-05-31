@@ -10,7 +10,7 @@
     <meta name="description" content="Job Application Page" />
     <meta name="keywords" content="Job, Apply, Information, Form" />
     <meta name="author" content="Shubh"  />
- <!-- Sets character encoding to UTF-8 for proper text display -->
+    <!-- Sets character encoding to UTF-8 for proper text display -->
 
     <title>Apply</title>
     <!-- Title displayed on the browser tab -->
@@ -23,131 +23,131 @@
 
 <body>
 
-    <?php
-        $page = "apply";
-        include 'header.inc';
-        include 'nav.inc'; ?>
+<?php
+$page = "apply";
+include 'header.inc';
+include 'nav.inc'; ?>
 
-    <!-- Banner section displaying page heading -->
-    <div class="banner">
-        <h1>CAREERS</h1>
-    </div>
+<!-- Banner section displaying page heading -->
+<div class="banner">
+    <h1>CAREERS</h1>
+</div>
 
-    <!-- Main content container -->
-    <main class="container">
+<!-- Main content container -->
+<main class="container">
 
-        <!-- Main heading of the form -->
-        <h1 id="title">JOB APPLICATION</h1>
+    <!-- Main heading of the form -->
+    <h1 id="title">JOB APPLICATION</h1>
 
-        <!-- Form element: sends data using POST method to external test server -->
-        <form method="POST" action="process_eoi.php" novalidate>
+    <!-- Form element: sends data using POST method to process_eoi.php -->
+    <form method="POST" action="process_eoi.php" novalidate>
 
-            <!-- Grid layout for aligning form fields -->
-            <div class="form-grid">
+        <!-- Grid layout for aligning form fields -->
+        <div class="form-grid">
 
-                <!-- Job Reference Number: must be exactly 5 alphanumeric characters -->
-                <label for="jobRef">Job Reference Number:</label>
-                <input type="text" id="jobRef" name="jobRef" >
+            <!-- Job Reference Number: must be exactly 5 alphanumeric characters -->
+            <label for="jobRef">Job Reference Number:</label>
+            <input type="text" id="jobRef" name="jobRef" >
 
-                <!-- First Name: max 20 characters, letters only -->
-                <label for="fname">First Name:</label>
-                <input type="text" id="fname" name="fname" >
+            <!-- First Name: max 20 characters, letters only -->
+            <label for="fname">First Name:</label>
+            <input type="text" id="fname" name="fname" >
 
-                <!-- Last Name: max 20 characters, letters only -->
-                <label for="lname">Last Name:</label>
-                <input type="text" id="lname" name="lname"  >
+            <!-- Last Name: max 20 characters, letters only -->
+            <label for="lname">Last Name:</label>
+            <input type="text" id="lname" name="lname"  >
 
-                <!-- Date of Birth: must match dd/mm/yyyy format -->
-                <label for="dob">Date of Birth:</label>
-                <input type="text" id="dob" name="dob" placeholder="dd/mm/yyyy"  >
+            <!-- Date of Birth: must match dd/mm/yyyy format -->
+            <label for="dob">Date of Birth:</label>
+            <input type="text" id="dob" name="dob" placeholder="dd/mm/yyyy"  >
 
-            </div>
+        </div>
 
-            <!-- Gender selection using radio buttons (only one can be selected) -->
-            <fieldset>
-                <legend>Gender</legend>
+        <!-- Gender selection using radio buttons (only one can be selected) -->
+        <fieldset>
+            <legend>Gender</legend>
 
-                <label><input type="radio" name="gender" value="male"> Male</label>
-                <label><input type="radio" name="gender" value="female"> Female</label>
-                <label><input type="radio" name="gender" value="other"> Other</label>
-            </fieldset>
+            <label><input type="radio" name="gender" value="male"> Male</label>
+            <label><input type="radio" name="gender" value="female"> Female</label>
+            <label><input type="radio" name="gender" value="other"> Other</label>
+        </fieldset>
 
-            <!-- Second grid for address and contact details -->
-            <div class="form-grid">
+        <!-- Second grid for address and contact details -->
+        <div class="form-grid">
 
-                <!-- Street address input -->
-                <label for="street">Street Address:</label>
-                <input type="text" id="street" name="street">
+            <!-- Street address input -->
+            <label for="street">Street Address:</label>
+            <input type="text" id="street" name="street">
 
-                <!-- Suburb or town input -->
-                <label for="suburb">Suburb/Town:</label>
-                <input type="text" id="suburb" name="suburb" >
+            <!-- Suburb or town input -->
+            <label for="suburb">Suburb/Town:</label>
+            <input type="text" id="suburb" name="suburb" >
 
-                <!-- State selection dropdown -->
-                <label for="state">State:</label>
-                <select id="state" name="state" >
+            <!-- State selection dropdown -->
+            <label for="state">State:</label>
+            <select id="state" name="state" >
 
-         <!-- Default empty option forces user selection -->
-         <option value="">Select</option>
+                <!-- Default empty option forces user selection -->
+                <option value="">Select</option>
 
-         <!-- Australian states and territories -->
-         <option>VIC</option>
-         <option>NSW</option>
-         <option>QLD</option>
-         <option>NT</option>
-         <option>WA</option>
-         <option>SA</option>
-         <option>TAS</option>
-         <option>ACT</option>
-       </select>
+                <!-- Australian states and territories -->
+                <option>VIC</option>
+                <option>NSW</option>
+                <option>QLD</option>
+                <option>NT</option>
+                <option>WA</option>
+                <option>SA</option>
+                <option>TAS</option>
+                <option>ACT</option>
+            </select>
 
-                <!-- Postcode: must be exactly 4 digits -->
-                <label for="postcode">Postcode:</label>
-                <input type="text" id="postcode" name="postcode"  >
+            <!-- Postcode: must be exactly 4 digits -->
+            <label for="postcode">Postcode:</label>
+            <input type="text" id="postcode" name="postcode"  >
 
-                <!-- Email input with built-in validation -->
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" >
+            <!-- Email input with server-side validation -->
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" >
 
-                <!-- Phone number: must be between 8 and 12 digits -->
-                <label for="phone">Phone Number:</label>
-                <input type="text" id="phone" name="phone" >
+            <!-- Phone number: must be between 8 and 12 digits -->
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" name="phone" >
 
-            </div>
+        </div>
 
-            <!-- Skills selection using checkboxes (multiple selections allowed) -->
-            <fieldset>
-                <legend>Skills</legend>
+        <!-- Skills selection using checkboxes (multiple selections allowed) -->
+        <fieldset>
+            <legend>Skills</legend>
 
-                <!-- 'skills[]' allows multiple values to be submitted as an array -->
-                <label><input type="checkbox" name="skills[]" value="html"> HTML</label>
-                <label><input type="checkbox" name="skills[]" value="css"> CSS</label>
-                <label><input type="checkbox" name="skills[]" value="js"> JavaScript</label>
-                <label><input type="checkbox" name="skills[]" value="python"> Python</label>
-            </fieldset>
+            <!-- 'skills[]' allows multiple values to be submitted as an array -->
+            <label><input type="checkbox" name="skills[]" value="html"> HTML</label>
+            <label><input type="checkbox" name="skills[]" value="css"> CSS</label>
+            <label><input type="checkbox" name="skills[]" value="js"> JavaScript</label>
+            <label><input type="checkbox" name="skills[]" value="python"> Python</label>
+        </fieldset>
 
-            <!-- Textarea for additional skills not listed above -->
-            <label for="other">Other Skills:</label>
-            <textarea id="other" name="other"></textarea>
+        <!-- Textarea for additional skills not listed above -->
+        <label for="other">Other Skills:</label>
+        <textarea id="other" name="other"></textarea>
 
-            <!-- Submit button: sends form data -->
-            <button id="button1" type="submit" style="background-color: green; color: white;">
-       Apply
-     </button>
+        <!-- Submit button: sends form data -->
+        <button id="button1" type="submit" style="background-color: green; color: white;">
+            Apply
+        </button>
 
-            <!-- Reset button: clears all form inputs -->
-            <button type="reset" id="button2" value="reset" style="background-color: red; color: white;">
-       Reset
-     </button>
+        <!-- Reset button: clears all form inputs -->
+        <button type="reset" id="button2" value="reset" style="background-color: red; color: white;">
+            Reset
+        </button>
 
-        </form>
+    </form>
 
-    </main>
+</main>
 
-    <!-- Footer section (currently empty) -->
-    <footer>
-        <?php include 'footer.inc'; ?>
-    </footer>
+<!-- Footer section (currently empty) -->
+<footer>
+    <?php include 'footer.inc'; ?>
+</footer>
 
 </body>
 
