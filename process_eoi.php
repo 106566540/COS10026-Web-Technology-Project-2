@@ -124,14 +124,10 @@ if (!empty($errors)) {
 
 // Insert into DB and confirm auto generated EOI number
 $query = "INSERT INTO eoi 
-(jobRef, first_name, last_name, dob, gender, street, suburb, state, postcode, email, phone, skills, other_skills)
+(job_reference, first_name, last_name, dob, gender, street_address, suburb, state, postcode, email, phone, skills, other_skills)
 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 $stmt = mysqli_prepare($conn, $query);
-
-if (!$stmt) {
-    die("Prepare failed: " . mysqli_error($conn));
-}
 
 mysqli_stmt_bind_param(
         $stmt,
