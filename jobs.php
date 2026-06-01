@@ -3,8 +3,40 @@
 
 require_once("settings.php");
 
-$query = "SELECT * FROM jobs";
-$result = mysqli_query($conn, $query);
+$search = trim($_GET['search'] ?? '');
+
+if ($search != '') {
+
+    $query = "
+        SELECT *
+        FROM jobs
+        WHERE title LIKE ?
+        OR description LIKE ?
+        OR reference_number LIKE ?
+    ";
+
+    $stmt = mysqli_prepare($conn, $query);
+
+    $searchTerm = "%$search%";
+
+    mysqli_stmt_bind_param(
+        $stmt,
+        "sss",
+        $searchTerm,
+        $searchTerm,
+        $searchTerm
+    );
+
+    mysqli_stmt_execute($stmt);
+
+    $result = mysqli_stmt_get_result($stmt);
+
+} else {
+
+    $query = "SELECT * FROM jobs";
+
+    $result = mysqli_query($conn, $query);
+}
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +75,16 @@ $result = mysqli_query($conn, $query);
         <div class="content">
 
             <h1>Job Listings</h1>
+            <form action="jobs.php" method="get">
+            <input
+                type="text"
+                name="search"
+                placeholder="Search jobs..."
+                value="<?php echo htmlspecialchars($_GET['search'] ?? ''); ?>"
+            >
 
+    <input type="submit" value="Search">
+</form>
             <aside>
                 <p>
                     All positions that are currently available, including details on
@@ -52,6 +93,11 @@ $result = mysqli_query($conn, $query);
             </aside>
 
             <?php
+            if ($search != '') {
+                echo "<p>Showing results for: <strong>" .
+                    htmlspecialchars($search) .
+                    "</strong></p>";
+}
             # Check if there are any job listings in the database and display them
             if (mysqli_num_rows($result) > 0) {
 # Loop through each job listing and display its details
