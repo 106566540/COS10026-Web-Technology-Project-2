@@ -16,7 +16,6 @@
     <!-- Title displayed on the browser tab -->
 
     <!-- External CSS file linked for styling -->
-    <link rel="stylesheet" href="demo.css">
     <link rel="stylesheet" type="text/css" href="style.css">
 
 </head>

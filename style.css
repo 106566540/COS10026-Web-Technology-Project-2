@@ -156,3 +156,101 @@
 .fun-facts tr:hover td {
     background-color: #ffe8a1;
 }
+
+.banner h1 {
+    text-align: left;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 150px;
+    font-weight: bold;
+    color: rgb(26, 25, 25);
+    margin: 0;
+}
+
+.banner {
+    background-image: url("images/download.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    margin: 0;
+    border: 3px double blue;
+}
+
+#title {
+    text-align: center;
+    color: red;
+    font-size: 28px;
+    margin: 25px;
+}
+
+#title:hover {
+    color: blue;
+}
+
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    background: radial-gradient(circle, lightblue, white);
+    padding: 30px 40px;
+    border-radius: 10px;
+    border-color: rgb(73, 175, 206);
+    border-style: dotted;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 15px;
+    text-align: center;
+}
+
+label {
+    text-align: right;
+    font-weight: 500;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #090909;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+fieldset {
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px dotted #180ade;
+    border-radius: 8px;
+}
+
+legend {
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+fieldset label {
+    text-align: left;
+    margin-right: 15px;
+}
+
+#button1 {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#button2 {
+    float: right;
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
